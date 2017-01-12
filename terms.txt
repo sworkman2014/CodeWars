@@ -1,0 +1,38 @@
+global object
+static method
+turnary operator ? :
+  if the variable is going to changed based on the statement, use a turnary operator ex: var varToChange = some statement ? execute this : otherwise execute this
+  you cannot use turnary operators in JSX functions
+spread operator (...)
+    allows you to use an expression in places where multiple arguments or elements or variables are expected
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator
+recursive function
+    a function that calls itself.
+    https://medium.com/functional-javascript/recursion-282a6abbf3c5#.ik9tjxskd\
+  EXAMPLE:
+  function factorial(n, accumulator) {
+    if (n === 0) {
+      // this serves as the 'break'
+      return accumulator
+      // accumulator ends up being the value you want in the end so call it after the break
+    }
+    return factorial(n — 1, n * accumulator)
+    // each parameter will act as kind of a mini function that will occur over and over again until the specified variable reaches the breaking number.
+  }
+blocks
+    allow statements between curly brackets to be executed
+    functions are essentially "named blocks"
+variables
+    can either be:
+      complex (like Objects or Arrays) - passed by *reference* if used as arguments in functions. JS points to its location in memory
+      primitive (string, integer) - passed by *value* if used as an argument in a function
+function declaration
+    can be called anywhere in the document
+    function isLie(cake){
+      return cake === true;
+    }
+function expression
+    is only executed when it is called here
+    var isLie = function(cake){
+    return cake === true;
+    }

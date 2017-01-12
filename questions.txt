@@ -1,0 +1,75 @@
+1. >>
+Math.min.apply(null, arr)
+  ** I don't understand when multiple arguments are called? when should they all be called, when does it not matter to call them all?
+
+2. >>
+function twoDecimalPlaces(n) {
+  return +n.toFixed(2);
+}
+
+function booleanToString(b){
+  return b+'';
+}
+** what does the + mean?
+
+3. >>
+function booleanToString(b){
+  return `${b}`
+}
+** how exactly does this work?
+
+4. >> function squareSum(numbers){
+  return numbers.reduce(function(sum, n){
+    return (n*n) + sum;
+  }, 0)
+}
+** I can't understand how reduce works.......
+
+5. >>
+function squareSum(numbers){
+  return numbers.map(square).reduce(sum);
+}
+
+function square(number) {
+  return number * number;
+}
+
+function sum(firstNumber, secondNumber) {
+  return firstNumber + secondNumber;
+}
+** I don't understand why you can call functions before you define them, and how all of these functions are executing with the given arguments..
+
+6. >>
+Object.prototype.toString
+** do you have to use .prototype.??
+
+7 >>
+var triumph = false,
+       cake = false,
+       satisfaction = 0,
+       isLie,
+       note = '';
+** what does it mean to have a variable set to nothing? or set to 0? or set to empty string?
+
+8. >>
+var object = {
+    'foo': 'bar'
+},
+num = 1;
+
+// Passed by reference
+;!function(obj) {
+    obj.foo = 'baz';
+}(object);
+
+// => Object {foo: "baz"}
+console.log(object);
+
+// Passed by value;
+;!function(num) {
+    num = 2;
+}(num);
+
+// => 1
+console.log(num);
+** how come object changes and num doesnt?
