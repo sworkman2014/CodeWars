@@ -722,7 +722,7 @@ function positiveSum(arr) {
 
 -----------------------------------------------------------
 
-/* Write a function that takes an array of strings as an argument and returns a sorted array containing the same strings, ordered from shortest to longest.
+24. /* Write a function that takes an array of strings as an argument and returns a sorted array containing the same strings, ordered from shortest to longest.
 For example, if this array were passed as an argument:
 ["Telescopes", "Glasses", "Eyes", "Monocles"]
 Your function would return the following array:
@@ -741,3 +741,18 @@ function sortByLength (array) {
 function sortByLength (array) {
   return array.sort((a,b) => a.length - b.length);
 };
+
+-----------------------------------------------------------
+25. /*
+create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
+HINT: you don't need to change the array, just return what it is asking for.
+*/
+function filter_list(l) {
+  return l.filter(function(v) {return typeof v == 'number'})
+  // .filter is used to go through every item in array and use typeof to return a specific type
+}
+
+// VARIATION USING ES6
+const filter_list = l => l.filter(c => typeof c === 'number');
+
+-----------------------------------------------------------
