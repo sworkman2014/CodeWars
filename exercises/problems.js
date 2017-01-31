@@ -4,28 +4,6 @@ See how many different ways you can write this function! There are a TON.
 */
 
 function toString(b){
-  if (b==true){
-    return 'true';
-  } else return 'false';
-
-}
-
-function booleantoString(value){
-  if (value) {
-    return 'true';
-  } else return 'false';
-}
-
-function toString(b){
-  return b ? 'true' : 'false';
-}
-
-function booleanToString(b){
-  return b.toString();
-}
-
-function toString(b){
-  String(b)
 }
 -----------------------------------------------------------
 
@@ -67,7 +45,7 @@ SeriesSum(5) => 1 + 1/4 + 1/7 + 1/10 + 1/13 = "1.57"
 */
 function SeriesSum(n) {
 
-  
+
 }
 
 -----------------------------------------------------------
