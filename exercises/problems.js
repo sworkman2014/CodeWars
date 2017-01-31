@@ -3,12 +3,49 @@ Write a function that takes a boolean value and turns it to the string equivilen
 See how many different ways you can write this function! There are a TON.
 */
 
+function toString(b){
+  if (b==true){
+    return 'true';
+  } else return 'false';
+
+}
+
+function booleantoString(value){
+  if (value) {
+    return 'true';
+  } else return 'false';
+}
+
+function toString(b){
+  return b ? 'true' : 'false';
+}
+
+function booleanToString(b){
+  return b.toString();
+}
+
+function toString(b){
+  String(b)
+}
 -----------------------------------------------------------
 
+1a./*
+Write a function called checkCoupon to verify that a coupon is valid and not expired. If the coupon is good, return true. Otherwise, return false.
+*/
+
+function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
+
+}
+
+
+-----------------------------------------------------------
 2. /*
 Consider an array of sheep where some sheep may be missing from their place. We need a function that counts the number of sheep present in the array (true means present).
 */
+function countSheeps(arrayOfSheep) {
 
+
+}
 
 -----------------------------------------------------------
 
@@ -28,7 +65,10 @@ SeriesSum(1) => 1 = "1"
 SeriesSum(2) => 1 + 1/4 = "1.25"
 SeriesSum(5) => 1 + 1/4 + 1/7 + 1/10 + 1/13 = "1.57"
 */
+function SeriesSum(n) {
 
+  
+}
 
 -----------------------------------------------------------
 

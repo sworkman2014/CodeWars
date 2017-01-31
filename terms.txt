@@ -36,3 +36,5 @@ function expression
     var isLie = function(cake){
     return cake === true;
     }
+RegEx
+http://www.w3schools.com/jsref/jsref_obj_regexp.asp

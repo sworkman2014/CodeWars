@@ -756,3 +756,221 @@ function filter_list(l) {
 const filter_list = l => l.filter(c => typeof c === 'number');
 
 -----------------------------------------------------------
+26. /*
+Given two integers, which can be positive and negative, find the sum of all the numbers between including them too and return it. If both numbers are equal return a or b.
+
+Note! a and b are not ordered!
+*/
+
+function GetSum( a,b )
+{
+   if (a == b) return a;
+   else if (a < b) return a + GetSum(a+1, b);
+  //  using recursion
+   else return a + GetSum(a-1,b);
+}
+
+// VARIATION USING ES 6
+const GetSum = (a, b) => {
+  let min = Math.min(a, b),
+      max = Math.max(a, b);
+  return (max - min + 1) * (min + max) / 2;
+}
+
+// VARIATIONfunction GetSum( a,b )
+{
+//if both a and b are equal return a
+   if(a===b){
+     return a;
+   }
+   var result = 0;
+
+   var x = a, y = b;
+ // check the larger and smaller numbers and assign them to x and y
+   if(a > b) {
+      x = b, y = a;
+   }
+ //in a loop add the numbers from the smaller one until it reaches the larger number
+   for(var i = x; i <=y; i++ ) {
+     result += i;
+   }
+   return result;
+
+}
+
+// VARIATION using two functions instead of recursion
+function GetSum( a, b )
+{
+  if( a < b ){ return loop( a, b ); }
+  if( a > b ){ return loop( b, a ); }
+  return a;
+}
+
+function loop( i, j ){
+  var total = 0;
+  for( i ; i <= j ; i++ ){
+    total += i;
+  }
+  return total;
+}
+
+-----------------------------------------------------------
+27. /*
+ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
+
+If the function is passed a valid PIN string (meaning only numbers, no letters, spaces, special characters, etc.), return true, else return false.*/
+
+//  RESOURCE: http://www.w3schools.com/jsref/jsref_obj_regexp.asp
+
+function validatePIN (pin) {
+  // example of when to use variables to make code more readable.....
+  if (!pin.match(/^[0-9a-z]+$/))
+    return false;
+    else if
+    (((!pin.match(/[a-z]/i)))
+    &&
+    ((pin.length == 4) || (pin.length == 6))){
+      return true;
+    } else
+       return false;
+  }
+
+  // REFACTORED CODE:
+  function validatePIN (pin){
+    var hasOnlyNumbers = pin.match(/^\d+$/);
+    // pin.match(/^\d+$/); says 'find a digit'.. if false then everything is false
+    var isCorrectLength = ((pin.length == 4) || (pin.length == 6));
+    if (hasOnlyNumbers && isCorrectLength){
+      return true;
+    }
+
+    return false;
+
+  }
+
+  // VARIATION -- DRY!
+  function validatePIN(pin) {
+  return /^(\d{4}|\d{6})$/.test(pin)
+  // .test searches for match in string, returns true or false
+}
+//  | finds any of alternatives specified
+  // ^ ==> the beginning of a string or line
+// () ==> groups multiple tokens together and creates a capture groupe for extracting a substring or using a backreference
+// \d ==> matches any digit
+// {4} and {6} ==> a quantifier (matches 4 or 6 of the previous token. \d in this case)
+// $ (Matches end of input)
+
+-----------------------------------------------------------
+28. /* Compare two strings, return false if the string contains anything but letters*/
+
+function compare(s1, s2) {
+  var hasOnlyLetters = function (string){
+    return /^[a-z]+$/i.test(string);
+  }
+
+  if (!(hasOnlyLetters(s1)){
+        return false;
+  }
+
+  return true;
+
+}
+-----------------------------------------------------------
+29. /* convert every character in a string that isn't a letter, to a letter*/
+
+function compare(s1, s2) {
+
+  for (i=0; i<s1.length; i++){
+    if (!(s1[i]).match(/^[a-z]+$/gi)){
+       return s1.replace(/[^a-z]/gi, '');
+    }
+  }
+}
+
+-----------------------------------------------------------
+29. /* find out if each item in a string is a letter, if it is, find the keyboard value. if not, the string returns a value of an empty string */
+
+function findValueStringOne(s1) {
+  var sumOfStringOne=0;
+  for (i=0; i<s1.length; i++){
+    if (!(s1[i]).match(/^[a-z]+$/gi)){
+      sumOfStringOne = s1.replace(/./g, '')
+      return sumOfStringOne;
+      // console.log(sumOfStringOne)
+    } else
+    sumOfStringOne = sumOfStringOne + s1.charCodeAt(i)
+  }
+  return sumOfStringOne;
+}
+
+-----------------------------------------------------------
+30. /* Compare two strings by comparing the sum of their values (ASCII character code).
+For comparing treat all letters as UpperCase.
+Null-Strings should be treated as if they are empty strings.
+If the string contains other characters than letters, treat the whole string as it would be empty.
+
+Examples:
+"AD","BC" -> equal
+"zz1","" -> equal
+*/
+
+function compare(s1, s2) {
+  if (/^\D+$/gi.test(s1) && /^\D+$/gi.test(s2))
+    return s1.split('').map(n => n.toUpperCase().charCodeAt()).reduce((a, b) => a + b) ===
+           s2.split('').map(n => n.toUpperCase().charCodeAt()).reduce((a, b) => a + b);
+  return true;
+}
+
+-----------------------------------------------------------
+31. /*You will be given a number and you will need to return it as a string in Expanded Form. For example:
+
+expandedForm(12); // Should return '10 + 2'
+expandedForm(42); // Should return '40 + 2'
+expandedForm(70304); // Should return '70000 + 300 + 4'
+*/
+
+const expandedForm = n => n.toString()
+                            .split("")
+                            .reverse()
+                            .map( (a, i) => a * Math.pow(10, i))
+                            .filter(a => a > 0)
+                            .reverse()
+                            .join(" + ");
+
+-----------------------------------------------------------
+
+32. /*Given an array, find the int that appears an odd number of times.
+
+There will always be only one integer that appears an odd number of times.*/
+function findOdd(arr) {
+  var result, num = 0;
+
+  arr = arr.sort();
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === arr[i+1]) {
+      num++;
+    } else {
+      num++;
+      if (num % 2 != 0) {
+        result = arr[i];
+        break;
+      }
+    }
+  }
+  return result;
+}
+
+// VARIATIONfunction findOdd(A) {
+  for(var i = 0; i < A.length; i++){
+    //Query the number of times that this 'i' element appears
+    //then verify if that number of times is odd. If it is true, then return
+    //that 'i' element
+    if((A.filter(function(item){return item == A[i]; })).length % 2 != 0){
+      return A[i];
+    }
+  }
+  return 0;
+}
+
+// VARIATION USING WTF ES6 BLOWING MY MIND RN
+const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
