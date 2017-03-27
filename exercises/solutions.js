@@ -2,6 +2,20 @@
 Write a function that takes a boolean value and turns it to the string equivilent.
 See how many different ways you can write this function! There are a TON.
 */
+dsaf
+ads
+fads
+f
+
+
+asdf
+asd
+f
+asdf
+asdf
+
+
+asdfasdf
 function booleanToString(b){
   if (b===true){
   return "true";
@@ -105,7 +119,7 @@ SeriesSum(5) => 1 + 1/4 + 1/7 + 1/10 + 1/13 = "1.57"
 
 function SeriesSum(n) {
   var sum = 0;
-  / the sum starts out as being zero and everytime the loop completes, the value of sum is RETAINED and REUSED
+  // the sum starts out as being zero and everytime the loop completes, the value of sum is RETAINED and REUSED
   for(var i = 0; i < n; i++) {
     sum += 1 / (3 * i + 1);
     //sum = sum (of previous loop) + 1(which is always the numerator in this example)/(3*i) + 1
@@ -974,3 +988,42 @@ function findOdd(arr) {
 
 // VARIATION USING WTF ES6 BLOWING MY MIND RN
 const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+
+-----------------------------------------------------------
+
+33. /*Given two numbers and an arithmetic operator (the name of it, as a string), return the result of the two numbers having that operator used on them.
+
+a and b will both be positive integers, and a will always be the first number in the operation, and b always the second.
+
+The four operators are "add", "subtract", "divide", "multiply".
+*/
+
+function arithmetic(a, b, operator){
+  switch(operator) {
+    case 'add':
+      return a + b;
+    case 'subtract':
+      return a - b;
+    case 'multiply':
+      return a * b;
+    case 'divide':
+      return a / b;
+  }
+}
+
+-----------------------------------------------------------
+
+34. /*
+Take 2 strings s1 and s2 including only letters from ato z.
+Return a new sorted string, the longest possible, containing distinct letters, - each taken only once - coming from s1 or s2.
+*/
+
+function longest(s1, s2) {
+  // your code
+  s3 = s1 + s2;
+  s4 = s3.split("");
+  s4 = s4.sort().filter(function(element, index, array){
+    return element !== array[index - 1];
+  });
+  return s4.join("");
+}

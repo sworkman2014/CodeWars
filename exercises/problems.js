@@ -4,6 +4,28 @@ See how many different ways you can write this function! There are a TON.
 */
 
 function toString(b){
+  if (b==true){
+    return 'true';
+  } else return 'false';
+
+}
+
+function booleantoString(value){
+  if (value) {
+    return 'true';
+  } else return 'false';
+}
+
+function toString(b){
+  return b ? 'true' : 'false';
+}
+
+function booleanToString(b){
+  return b.toString();
+}
+
+function toString(b){
+  String(b)
 }
 -----------------------------------------------------------
 
@@ -12,7 +34,13 @@ Write a function called checkCoupon to verify that a coupon is valid and not exp
 */
 
 function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
+    var current = Date.parse(currentDate);
+    var exp = Date.parse(expirationDate);
 
+    if (enteredCode == correctCode) && (exp > current){
+      return true;
+    }
+    return false;
 }
 
 
@@ -21,8 +49,12 @@ function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
 Consider an array of sheep where some sheep may be missing from their place. We need a function that counts the number of sheep present in the array (true means present).
 */
 function countSheeps(arrayOfSheep) {
-
-
+  var present = 0;
+  for (i=0; i<arrayOfSheep.length; i++){
+    if (arrayOfSheep[i]==true)
+      present++
+  }
+  return present;
 }
 
 -----------------------------------------------------------
@@ -44,8 +76,11 @@ SeriesSum(2) => 1 + 1/4 = "1.25"
 SeriesSum(5) => 1 + 1/4 + 1/7 + 1/10 + 1/13 = "1.57"
 */
 function SeriesSum(n) {
-
-
+  var sum =0;
+  for (i=0; i<n.length; i++){
+    sum += 1/(i*3 + 1)
+  }
+return sum;
 }
 
 -----------------------------------------------------------
@@ -62,7 +97,11 @@ Write a function that returns the number of years 'Y' as a whole in order for Mr
 Assumptions : Assume that Desired Principal 'D' is always greater than the initial principal, however it is best to take into consideration that if the Desired Principal 'D' is equal to Principal 'P' this should return 0 Years.
 */
 
+function calculateYears(principal, interest, tax, desired) {
 
+
+
+}
 -----------------------------------------------------------
 
 5. /*
@@ -83,7 +122,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 http://www.w3schools.com/jsref/jsref_parseint.asp
 */
 
+function descendingOrder(n){
 
+  
+}
 -----------------------------------------------------------
 
 6. /*
